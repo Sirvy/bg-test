@@ -46,6 +46,7 @@ class ContactMapper
     {
         $contact->setFirstName($contactDto->getFirstName());
         $contact->setLastName($contactDto->getLastName());
+        $contact->setPhone($contactDto->getPhone());
         $contact->setEmail($contactDto->getEmail());
         $contact->setNote($contactDto->getNote());
 
