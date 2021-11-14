@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app.contact.new') }}">Přidat nový kontakt</a>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Email</th>
+                <th>Poznámka</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.firstName }}</td>
+                <td>{{ contact.lastName }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.note }}</td>
+                <td><a href="{{ path('app.contact', {contactIdentifier: contact.identifier}) }}">Editovat</a></td>
+                <td><a href="{{ path('app.contact', {contactIdentifier: contact.identifier}) }}">Smazat</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -7,6 +7,21 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <style>
+                .flashMessage {
+                    width: 100%;
+                    max-width: 500px;
+                    padding: 20px;
+                }
+                .flashMessage.success {
+                    background: lawngreen;
+                    color: black;
+                }
+                .flashMessage.danger {
+                    background: red;
+                    color: white;
+                }
+            </style>
         {% endblock %}
 
         {% block javascripts %}
@@ -14,6 +29,14 @@
         {% endblock %}
     </head>
     <body>
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flashMessage {{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% block body %}{% endblock %}
     </body>
 </html>
