@@ -15,8 +15,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Contact
 {
     /**
-     * @ORM\Column(type="string", unique=true, nullable=false)
+     * @ORM\Column(type="integer", unique=true, nullable=false)
+     * @ORM\GeneratedValue
      * @ORM\Id
+     * @var int
+     */
+    private int $id;
+
+    /**
+     * @ORM\Column(type="string", unique=true, nullable=false)
      * @var string
      */
     private string $identifier;
@@ -55,7 +62,7 @@ class Contact
         $this->lastName = $lastName;
         $this->email = $email;
         $this->note = $note;
-        $this->identifier = $this->createIdentifier();
+        $this->identifier = $this->generateIdentifier();
     }
 
     /**
@@ -70,10 +77,18 @@ class Contact
         $lastPart = $parsedIdentifier[count($parsedIdentifier) - 1];
 
         if (is_numeric($lastPart)) {
-            return $lastPart;
+            return (int)$lastPart;
         }
 
         return 0;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**
@@ -159,8 +174,8 @@ class Contact
     /**
      * @return string
      */
-    private function createIdentifier(): string
+    public function generateIdentifier(): string
     {
-        return urlencode($this->firstName . '-' . $this->lastName);
+        return urlencode(strtolower($this->firstName . '-' . $this->lastName));
     }
 }

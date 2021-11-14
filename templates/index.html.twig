@@ -22,7 +22,7 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.note }}</td>
                 <td><a href="{{ path('app.contact', {contactIdentifier: contact.identifier}) }}">Editovat</a></td>
-                <td><a href="{{ path('app.contact', {contactIdentifier: contact.identifier}) }}">Smazat</a></td>
+                <td><a href="{{ path('app.contact.delete', {contactIdentifier: contact.identifier}) }}">Smazat</a></td>
             </tr>
             {% endfor %}
         </tbody>

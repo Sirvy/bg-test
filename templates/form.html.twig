@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app.index') }}"><- Zpět</a>
+    <form method="post" action="{{ contact is defined ? path('app.contact.update', {'contactIdentifier': contact.identifier}) : path('app.contact.create') }}">
+        <table>
+            <tr>
+                <th><label for="firstName">Jméno</label></th>
+                <td>
+                    <input type="text" name="firstName" required value="{{ contact is defined ? contact.firstName : '' }}">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="lastName">Příjmení</label></th>
+                <td>
+                    <input type="text" name="lastName" required value="{{ contact is defined ? contact.lastName : '' }}">
+                </td>
+            </tr>
+            <tr>
+                <th><label for="email">Email</label></th>
+                <td><input type="email" name="email" required value="{{ contact is defined ? contact.email : '' }}"></tr>
+            </td>
+            </tr>
+            <tr>
+                <th><label for="note">Poznámka</label></th>
+                <td><textarea name="note">{{ contact is defined ? contact.note : '' }}</textarea></tr>
+            </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit"></tr>
+            </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
