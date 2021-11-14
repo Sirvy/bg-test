@@ -27,6 +27,12 @@ class ContactDto
     private string $email;
 
     /**
+     * @Assert\Regex(pattern="/^(\+420)? ?[1-9][0-9]{2} ?[0-9]{3} ?[0-9]{3}$/")
+     * @var string
+     */
+    private string $phone;
+
+    /**
      * @var string
      */
     private string $note;
@@ -34,11 +40,13 @@ class ContactDto
     public function __construct(
         string $firstName,
         string $lastName,
+        string $phone,
         string $email,
         string $note
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->phone = $phone;
         $this->email = $email;
         $this->note = $note;
     }
@@ -57,6 +65,14 @@ class ContactDto
     public function getLastName(): string
     {
         return $this->lastName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
     }
 
     /**

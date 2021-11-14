@@ -44,6 +44,12 @@ class Contact
      * @ORM\Column(type="string", nullable=false)
      * @var string
      */
+    private string $phone;
+
+    /**
+     * @ORM\Column(type="string", nullable=false)
+     * @var string
+     */
     private string $email;
 
     /**
@@ -55,11 +61,13 @@ class Contact
     public function __construct(
         string $firstName,
         string $lastName,
+        string $phone,
         string $email,
         ?string $note = null
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->phone = $phone;
         $this->email = $email;
         $this->note = $note;
         $this->identifier = $this->generateIdentifier();
@@ -169,6 +177,22 @@ class Contact
     public function setNote(?string $note): void
     {
         $this->note = $note;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     */
+    public function setPhone(string $phone): void
+    {
+        $this->phone = $phone;
     }
 
     /**

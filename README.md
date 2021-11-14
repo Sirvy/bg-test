@@ -31,5 +31,5 @@ Routes:
 - `GET /{identifier}` - detail page with edit from of the requested contact
 - `GET /new` - form for adding a new contact record
 - `POST /{identifier}/update` - API for updating a requested contact record
-- `POST /{identifier}/delete` - API for deleting a requested contact record
-- `POST /new` - API for creating a new contact record
+- `GET /{identifier}/delete` - API for deleting a requested contact record
+- `POST /create` - API for creating a new contact record

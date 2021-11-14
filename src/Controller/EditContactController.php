@@ -10,23 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
-class EditContactDetailController extends AbstractController
+class EditContactController extends AbstractController
 {
     private ContactRepository $contactRepository;
 
     public function __construct(ContactRepository $contactRepository)
     {
         $this->contactRepository = $contactRepository;
-    }
-
-    /**
-     * @Route("/new", name="app.contact.new")
-     *
-     * @return Response
-     */
-    public function new(): Response
-    {
-        return $this->render('form.html.twig');
     }
 
     /**

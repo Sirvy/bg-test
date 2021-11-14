@@ -18,6 +18,7 @@ class ContactFactory
         return new Contact(
             $contactDto->getFirstName(),
             $contactDto->getLastName(),
+            $contactDto->getPhone(),
             $contactDto->getEmail(),
             $contactDto->getNote()
         );

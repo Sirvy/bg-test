@@ -18,6 +18,7 @@ class ContactDtoFactory
         return new ContactDto(
             $request->get('firstName'),
             $request->get('lastName'),
+            $request->get('phone'),
             $request->get('email'),
             $request->get('note')
         );
