@@ -18,8 +18,11 @@ class UpdateContactController extends AbstractController
     private ContactDtoFactory $dtoFactory;
     private ValidatorInterface $validator;
 
-    public function __construct(UpdateContactHandler $handler, ContactDtoFactory $dtoFactory, ValidatorInterface $validator)
-    {
+    public function __construct(
+        UpdateContactHandler $handler,
+        ContactDtoFactory $dtoFactory,
+        ValidatorInterface $validator
+    ) {
         $this->handler = $handler;
         $this->dtoFactory = $dtoFactory;
         $this->validator = $validator;

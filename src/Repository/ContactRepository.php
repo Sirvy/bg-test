@@ -17,6 +17,9 @@ class ContactRepository
         $this->entityManager = $entityManager;
     }
 
+    /**
+     * @return array<Contact>
+     */
     public function getAll(): array
     {
         return $this->entityManager
@@ -28,6 +31,10 @@ class ContactRepository
             ->getArrayResult();
     }
 
+    /**
+     * @param string $contactIdentifier
+     * @return Contact|null
+     */
     public function getByIdentifier(string $contactIdentifier): ?Contact
     {
         try {
@@ -44,6 +51,13 @@ class ContactRepository
         }
     }
 
+    /**
+     * Returns true, if a different record with the same identifier exists
+     * Returns false otherwise
+     *
+     * @param Contact $contact
+     * @return bool
+     */
     public function contactWithSameIdentifierExists(Contact $contact): bool
     {
         $result = $this->entityManager

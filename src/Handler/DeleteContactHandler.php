@@ -19,6 +19,9 @@ class DeleteContactHandler
         $this->contactMapper = $contactMapper;
     }
 
+    /**
+     * @param string $identifier
+     */
     public function handle(string $identifier): void
     {
         $contact = $this->contactRepository->getByIdentifier($identifier);

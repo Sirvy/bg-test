@@ -26,6 +26,10 @@ class ContactMapper
         $this->contactFactory = $contactFactory;
     }
 
+    /**
+     * @param ContactDto $contactDto
+     * @return Contact
+     */
     public function createEntity(ContactDto $contactDto): Contact
     {
         $contact = $this->contactFactory->createFromDto($contactDto);
@@ -42,6 +46,11 @@ class ContactMapper
         return $contact;
     }
 
+    /**
+     * @param Contact $contact
+     * @param ContactDto $contactDto
+     * @return Contact
+     */
     public function updateEntity(Contact $contact, ContactDto $contactDto): Contact
     {
         $contact->setFirstName($contactDto->getFirstName());
@@ -62,6 +71,9 @@ class ContactMapper
         return $contact;
     }
 
+    /**
+     * @param Contact $contact
+     */
     public function deleteEntity(Contact $contact): void
     {
         $this->entityManager->remove($contact);

@@ -22,6 +22,10 @@ class UpdateContactHandler
         $this->contactMapper = $contactMapper;
     }
 
+    /**
+     * @param ContactDto $dto
+     * @param string $contactIdentifier
+     */
     public function handle(ContactDto $dto, string $contactIdentifier): void
     {
         $contact = $this->contactRepository->getByIdentifier($contactIdentifier);

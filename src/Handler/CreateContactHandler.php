@@ -16,6 +16,9 @@ class CreateContactHandler
         $this->contactMapper = $contactMapper;
     }
 
+    /**
+     * @param ContactDto $dto
+     */
     public function handle(ContactDto $dto): void
     {
         $this->contactMapper->createEntity($dto);

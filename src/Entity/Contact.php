@@ -74,24 +74,6 @@ class Contact
     }
 
     /**
-     * Returns 0 if unique,
-     * otherwise returns the counter number attached to the identifier.
-     *
-     * @return int
-     */
-    public function getCounter(): int
-    {
-        $parsedIdentifier = explode('-', $this->identifier);
-        $lastPart = $parsedIdentifier[count($parsedIdentifier) - 1];
-
-        if (is_numeric($lastPart)) {
-            return (int)$lastPart;
-        }
-
-        return 0;
-    }
-
-    /**
      * @return int
      */
     public function getId(): int
