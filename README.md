@@ -1,4 +1,4 @@
-# Blueghost Test
+# Symfony Sample
 Simple test application written in Symfony 5 Framework.
 
 
